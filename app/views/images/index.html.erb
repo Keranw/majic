@@ -1,0 +1,40 @@
+<%= link_to "New Image", new_image_path, class: "btn btn-primary" %>
+<br />
+<br />
+<table class="table table-bordered table-striped" style = "text-align:center;">
+  <thead>
+    <tr style = "text-align:center;">
+      <th style = "text-align:center;">Image</th>
+      <th style = "text-align:center;">Name</th>
+      <th style = "text-align:center;">Download Link</th>
+      <th style = "text-align:center;">Share (Email)</th>
+      <th style = "text-align:center;">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @images.each do |image|%>
+      <tr>
+        <td><%=link_to image_tag(image.url,size:"80"), edit_image_path(image.id)%></td>
+        <td><%= link_to image.name, edit_image_path(image.id) %></td>
+        <td><%= link_to "Download Image", image_download_path(image) %></td>
+        <td>
+          <form action="images/share" method="post">
+            <p>
+            <input class="form-control" style="width: 80%" type="text" name="email"> 
+            <input type="submit" class="btn btn-primary submitBt"  value="Share">
+          </p>
+            <input type="hidden" name="id" value="<%=image.id%>" >
+          </form>
+        </td>
+        <td>
+          <%= button_to "Trash",  image_trash_path(image.id), method: :post, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class= "page">
+<p style= "text_align:center">
+<%= will_paginate @images%>
+</p>
+</div>

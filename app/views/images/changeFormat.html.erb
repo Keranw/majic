@@ -1,0 +1,83 @@
+
+
+
+<div class = "edit" >
+    <div class = "left_panel">
+    	<div class = "last_version" style= "width:100%">
+        <h4 style ="margin-left:55px;", class = "head4">Last Version</h4>
+          <div class = "tdiv">
+        <table class="table table-condensed">
+  <thead>
+    <tr>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <% if @lastVersion %>
+        <td><%=link_to image_tag(@lastVersion.url,size:"100")%></td>
+        <td style= "width:100px"><%= link_to @lastVersion.name, edit_image_path(@lastVersion.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+    	</div>
+    	<div class = "next_version">
+        <p style="text-align:center;">
+         <h4 style = "margin-top:30px;margin-left:55px", class = "head4">Next Version</h4>
+       </p>
+       <div class = "nexttdiv">
+        <table class="table table-condensed" >
+  <thead>
+    <tr>
+    </tr>
+  </thead>
+  <tbody>
+     <% if @nextVersions %>
+   <% @nextVersions.each do |nextVersion|%>
+      <tr>
+        <td ><%=link_to image_tag(nextVersion.url,size:"100")%></td>
+       <td><%= link_to nextVersion.name, edit_image_path(nextVersion.id) %></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<p style= "text_align:center">
+<%= will_paginate @nextVersions, :page_links => false%>
+</p>
+    	</div>
+    </div>
+      <div class = "main_content" >
+        <div class = "image_info">
+          <div class = "image_info2">
+            <h4 class = "head4 htip">ImageName: <%=@image.name%></h4>
+            <h4 class = "head4 htip">ImageTag: <%=@image.tag%></h4>
+            <h4 class = "head4 htip">AppliedFilters: <%=@appliedFilters%></h4>
+          </div>
+        </div>
+        <div class = "image">
+             <%=link_to image_tag("#{@newImage}.jpg",size:"500")%>
+        <div>
+             <div class = "btDIv">
+             <div class = "restoreDiv"> 
+         <%= link_to "restore", edit_image_path(@image.id), :class => "btn btn-primary saveBt" %>     
+      </div>
+        </div class = "saveDiv"> 
+         <%= link_to("save",{:controller =>'images',:action => 'save',:image_id =>@image.id,:appliedFilters =>@appliedFilters}, :class => "btn btn-primary saveBt")%>        
+      </div>
+    </div>
+    </div>
+      <div class = "right_panel">
+        <h2 class = "head4">Filters</h2>
+         <% @filters.each do |filter|%>
+         <p style="text-align:center;">
+          <%= link_to("#{filter.name}",{:controller =>'images',:action => 'reEdit',:image_id =>@image.id ,:filter_id =>filter.id ,:appliedFilters =>@appliedFilters}, :class => "btn btn-primary editBt")%> 
+        </p>
+          <% end %>
+          <p style= "text_align:center">
+<%= will_paginate @nextVersions, :page_links => false%>
+</p>
+      </div>
+</div>

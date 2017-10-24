@@ -1,0 +1,23 @@
+<%= link_to "Clear Trash", images_cleartrash_path, method: :post, data: { confirm: "Do you really want to clear your trash bin?" }, class: "btn btn-primary" %>
+<div style = "margin-top:10px;text-align: center;">
+<table class="table table-bordered table-striped"style= "text-align: center">
+  <thead>
+    <tr>
+      <th style= "text-align: center">Image</th>
+      <th style= "text-align: center">Name</th>
+      <th style= "text-align: center">Delete Time</th>
+      <th style= "text-align: center">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @images.each do |image|%>
+      <tr>
+        <td><%=link_to image_tag(image.url,size:"80")%></td>
+        <td><%= image.name %></td>
+        <td><%= image.updated_at %></td>
+        <td><%= button_to "Restore",  image_restore_path(image), method: :post, class: "btn btn-primary"%><br /><%= button_to "Delete", image, method: :delete, data: { confirm: "Do you really want to delete this image?" }, class: "btn btn-danger"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

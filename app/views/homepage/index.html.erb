@@ -1,0 +1,12 @@
+
+<div class = "homeDiv">
+<img alt="Welcome" src="/assets/image1_meitu_1.jpg" style= "width: 100%"/>
+ <% if !signed_in? %>
+<p style="text-align:center; margin-top: 10px;">
+<%= link_to "Sign in now!", new_user_session_path, :class => "btn btn-primary"%>
+</p>
+<p style="text-align:center;">
+<%= link_to "still do not have an account, sign in now!", new_user_registration_path%>
+</p>
+<% end %>
+</div>

@@ -1,0 +1,2 @@
+module MyfiltersHelper
+end

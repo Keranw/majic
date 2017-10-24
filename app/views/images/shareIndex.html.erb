@@ -1,0 +1,21 @@
+
+<br />
+<br />
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Download Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @images.each do |image|%>
+      <tr>
+        <td><%=link_to image_tag(image.url,size:"80"), image_view_path(image.id)%></td>
+        <td><%= link_to image.name, image_view_path(image.id) %></td>
+        <td><%= link_to "Download Image", image_download_path(image) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,37 @@
+<% if !flash[:notice].blank? %>
+  <div class="alert alert-info">
+  <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<%= form_tag("/myfilters/update" , :method => :get ) do %>
+<div class = "addFilter">
+<table class="table table-bordered table-striped tbstyle">
+  <thead>
+    <tr>
+      <th style= "width:30px"></th>
+      <th style= "width:70px;text-align:center;">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @filters.each do |filter|%>
+      <tr>
+      	 <% checkboxId = "filter" + filter.id.to_s %>
+        <td style= "width:30px;text-align:center;"> <%= check_box_tag(checkboxId , "yes" , false ,  :class => "custom-checkbox") %></td>
+        <td style= "width:70px;text-align:center;"><%= filter.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div style= "margin-left:80px;">
+<p style= "text_align:center">
+<%= will_paginate @filters %>
+</p>
+</div>
+<div style= "">
+  <p style="text-align:center;">
+  <%= submit_tag("Add", :class => "btn btn-primary addFIlterbt") %>
+</p>
+</div>
+</div>
+<% end %>

@@ -1,0 +1,31 @@
+
+<div class = "filterIndex">
+<br />
+<%= link_to "Add Filter", myfilters_add_path, class: "btn btn-primary" %>
+<br />
+<br />
+<table class="table table-bordered table-striped tbstyle">
+  <thead>
+    <tr>
+      <th style= "text-align:center">Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @filters.each do |filter|%>
+      <tr>
+        <td><%= filter.name %></td>
+        
+         <td>
+          <%= button_to "Delete",  myfilters_delete_path(filter.id), method: :post, class: "btn btn-danger"%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div style= "margin-left:250px;">
+<p style= "text_align:center">
+<%= will_paginate @filters %>
+</p>
+</div>
+</div>

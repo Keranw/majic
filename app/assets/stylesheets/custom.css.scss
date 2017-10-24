@@ -1,0 +1,260 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+$gray-medium-light: #eaeaea;
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $gray-medium-light;
+  color: $gray-light;
+  a {
+    color: $gray;
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+.login {
+    width:340px;
+    margin: 7em auto;
+}
+.signup {
+    width:340px;
+    margin: 6em auto;
+}
+.signup-bt{
+  margin-left:130px;
+}
+.head{
+  text-align:center;
+  margin-right:5px;
+}
+.signup-link{
+  margin-left:150px;
+}
+.image{
+  margin-top:10px;
+  margin-left: auto; 
+  margin-right: auto;
+  text-align:center;
+}
+.last_version{
+  float:top;
+  border:1px solid #DD6D22;
+  height:25%;
+}
+.edit{
+  border:1px solid #FF0000;
+  height: 670px; 
+  width: 95%; 
+  margin-left: auto; 
+  margin-right: auto
+}
+.left_panel{
+  float:left;
+  border:1px solid #DD6D22;
+  height: 670px;
+  width: 20%
+}
+.main_content{
+  float:left;
+  border:1px solid #DD6D22;
+  height: 670px; 
+  width:60%
+}
+.right_panel{
+  width: 20%;
+  float:left;
+  border:1px solid #DD6D22;
+  height: 670px;
+}
+.wellwidth{
+  width: 40%;
+}
+.well{
+ width: 40%; 
+ margin: 2em auto;
+}
+.wellbutton{
+  width:30%;
+  align: center;
+}
+.editImage{
+
+}
+.addFilter{
+  width:40%;
+  margin: 2em auto;
+}
+.addFIlterbt{
+  width:100px;
+}
+.filterIndex{
+  width:60%;
+  margin: 2em auto;
+}
+.editBt{
+  width:150px;
+}
+/*pagination*/
+.pagination { padding: 3px; margin: 3px; } 
+.pagination a { padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #aaaadd; text-decoration: none; color: #000099; } 
+.pagination a:hover, 
+.pagination a:active { border: 1px solid #000099; color: #000; } 
+.pagination span.current { padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #000099; font-weight: bold; background-color: #000099; color: #FFF; } 
+.pagination span.disabled { padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #eee; color: #ddd; }
+
+.head4{
+  text-shadow: 0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+  backgroung-color:blue;
+  color: #DD6D22;
+}
+.tdiv{
+  border-top:1px solid #DD6D22;
+}
+.image_info{
+  border-bottom:1px solid #DD6D22;
+
+}
+.htip{
+  margin-left:30px;
+}
+.nexttdiv{
+  border-top:1px solid #DD6D22;
+  border-bottom:1px solid #DD6D22;
+
+}
+.saveDiv{
+  float:right;
+  width:50%;
+}
+.restoreDiv{
+  float:left;
+  width:50%;
+}
+.saveBt{
+  width:100px;
+}
+.btDIv{
+  margin-top:5px;
+}
+.homeDiv{
+  width:95%;
+  margin: 0.5em auto;
+  margin-bottom: -30px;
+}
+.tbstyle{
+  text-align:center;
+}
+.submitBt{
+  position: relative;
+  left: 150px;
+  top: -35px;
+}
+.page{
+  margin-left:40%;
+}

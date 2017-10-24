@@ -1,0 +1,27 @@
+<% if !@image.errors.empty? %>
+  <div class="alert alert-error">
+    <ul>
+      <% @image.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="well">
+  <%= form_tag("/images/saveToDB", :method => :get) do %>
+    <p>
+   Name:<br />
+   <%= text_field_tag "name", nil, :class => "form-control wellwidth", :placeholder => "Please input image name"%>
+ </p>
+    <p>
+   Tag:<br />
+   <%= text_field_tag"tag", nil, :class => "form-control wellwidth", :placeholder => "Please input image tag" %>
+ </p>
+    <%= text_field_tag("lastVersion" , @image.lastVersion , :style => "display:none")%>
+    <%= text_field_tag("appliedFilters" , @image.appliedFilters, :style => "display:none")%>
+    <p style= "text-align:center">
+    <%= submit_tag 'Submit', class: "btn btn-primary"%>
+    </p>
+  <% end %>
+</div>
